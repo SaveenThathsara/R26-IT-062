@@ -31,7 +31,65 @@ class ConfidenceBars extends StatelessWidget {
     return AppColors.textMuted;
   }
 
- 
+  @override
+  Widget build(BuildContext context) {
+    final scores = result.classScores.entries.toList()
+      ..sort((a, b) => b.value.compareTo(a.value));
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.bgCard,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.border, width: 0.5),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.bar_chart_rounded,
+                  size: 16, color: AppColors.blue),
+              const SizedBox(width: 8),
+              Text(
+                'Class Probabilities',
+                style: GoogleFonts.inter(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          ...scores.map((entry) {
+            final isPred = entry.key == result.predictedClass;
+            final color = _barColor(entry.key, isPred);
+            final pct = entry.value * 100;
+
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: _Bar(
+                label: _shortLabel(entry.key),
+                value: entry.value,
+                pct: pct,
+                color: color,
+                isPredicted: isPred,
+              ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+
+  String _shortLabel(String name) {
+    // "Grade A Quality" → "Grade A"
+    final parts = name.split(' ');
+    return parts.length >= 2 ? '${parts[0]} ${parts[1]}' : name;
+  }
+}
+
 class _Bar extends StatelessWidget {
   final String label;
   final double value;
