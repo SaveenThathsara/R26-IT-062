@@ -158,6 +158,7 @@
     {
       "name": "meta",
       "version": "1.17.0",
+      "version": "1.18.0",
       "dependencies": []
     },
     {
@@ -209,6 +210,7 @@
     {
       "name": "matcher",
       "version": "0.12.17",
+      "version": "0.12.19",
       "dependencies": [
         "async",
         "meta",
@@ -220,6 +222,7 @@
     {
       "name": "test_api",
       "version": "0.7.7",
+      "version": "0.7.11",
       "dependencies": [
         "async",
         "boolean_selector",
@@ -426,6 +429,7 @@
     {
       "name": "material_color_utilities",
       "version": "0.11.1",
+      "version": "0.13.0",
       "dependencies": [
         "collection"
       ]
@@ -433,6 +437,7 @@
     {
       "name": "characters",
       "version": "1.4.0",
+      "version": "1.4.1",
       "dependencies": []
     },
     {
@@ -525,6 +530,21 @@
         "cross_file",
         "flutter",
         "http",
+      "name": "path_provider_windows",
+      "version": "2.3.0",
+      "dependencies": [
+        "ffi",
+        "flutter",
+        "path",
+        "path_provider_platform_interface"
+      ]
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "version": "2.1.2",
+      "dependencies": [
+        "flutter",
+        "platform",
         "plugin_platform_interface"
       ]
     },
@@ -559,6 +579,11 @@
         "cross_file",
         "file_selector_platform_interface",
         "flutter"
+      "name": "file",
+      "version": "7.0.1",
+      "dependencies": [
+        "meta",
+        "path"
       ]
     },
     {
@@ -610,6 +635,10 @@
       "dependencies": [
         "meta",
         "path"
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "dependencies": [
+        "meta"
       ]
     },
     {
