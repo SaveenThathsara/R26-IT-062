@@ -208,7 +208,55 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildGradeGuide(BuildContext context) {
+    const grades = [
+      _GradeInfo('A', 'Premium', AppColors.accent, 'Pristine, deep green, no blemishes'),
+      _GradeInfo('B', 'Good', AppColors.blue, 'Minor surface marks acceptable'),
+      _GradeInfo('C', 'Average', AppColors.accent3, 'Some yellowing or light damage'),
+      _GradeInfo('D', 'Below Avg', AppColors.accent2, 'Notable discoloration'),
+      _GradeInfo('E', 'Poor', AppColors.error, 'Significant damage or disease'),
+    ];
 
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _SectionHeader(
+          title: 'Grade Reference',
+          icon: Icons.grade_rounded,
+          color: AppColors.accent3,
+        ),
+        const SizedBox(height: 12),
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.bgCard,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: AppColors.border, width: 0.5),
+          ),
+          child: Column(
+            children: grades.asMap().entries.map((entry) {
+              final i = entry.key;
+              final g = entry.value;
+              return Column(
+                children: [
+                  _GradeRow(grade: g),
+                  if (i < grades.length - 1)
+                    Divider(
+                      color: AppColors.border.withOpacity(0.5),
+                      height: 1,
+                      indent: 16,
+                      endIndent: 16,
+                    ),
+                ],
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    )
+        .animate()
+        .fadeIn(delay: 300.ms, duration: 500.ms)
+        .slideY(begin: 0.05, end: 0.0, delay: 300.ms);
+  }
 
   Widget _buildModelInfo(BuildContext context) {
     return Column(
@@ -507,7 +555,7 @@ class _InfoCard extends StatelessWidget {
     required this.color,
   });
 
-
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(14),
