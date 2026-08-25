@@ -5,7 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import '../theme.dart';
 import '../services/model_initializer.dart';
-
+import '../models/inference_result.dart';
+import '../widgets/result_card.dart';
+import '../widgets/confidence_bars.dart';
+import '../widgets/ood_indicator.dart';
 
 /// Camera + Gallery → ONNX inference → result display.
 ///
