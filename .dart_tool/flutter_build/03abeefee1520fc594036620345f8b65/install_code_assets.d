@@ -1,0 +1,1 @@
+ D:\\Outsource\\2026\\betel\ insects\\betel_app\\.dart_tool\\flutter_build\\03abeefee1520fc594036620345f8b65\\native_assets.json: 
