@@ -1,0 +1,15 @@
+{
+  "labels": [
+    "Bacterial Leaf Disease",
+    "Dried Leaf",
+    "Fungal Brown Spot Disease",
+    "Healthy Leaf"
+  ],
+  "index_to_class": {
+    "0": "Bacterial Leaf Disease",
+    "1": "Dried Leaf",
+    "2": "Fungal Brown Spot Disease",
+    "3": "Healthy Leaf"
+  },
+  "num_classes": 4
+}
